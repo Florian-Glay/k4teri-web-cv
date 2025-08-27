@@ -1,3 +1,4 @@
+
 const Footer = () => (
 <footer className="border-t border-neutral-800 text-xs text-neutral-400">
 <div className="px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2">

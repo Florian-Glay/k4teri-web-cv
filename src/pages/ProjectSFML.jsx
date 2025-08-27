@@ -25,7 +25,7 @@ export default function ProjectSFML(){
             ⬇️ Télécharger (Windows)
           </a>
           {/* Ajoute d'autres builds si besoin
-          <a href="/downloads/SimuSFML-linux.tar.gz" className="inline-flex items-center gap-2 bg-white/10 rounded-xl px-5 py-2.5 hover:bg-white/20 transition">
+          <a href="/downloads/SimuSFML-linux.tar.gz" className="inline-flex items-center gap-2 bg-white/10 rounded-xl px-5 py-2.5 hover:bg-white/20 transition" download>
             🐧 Télécharger (Linux)
           </a>
           */}
@@ -34,7 +34,7 @@ export default function ProjectSFML(){
 
       <Section title="Captures">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <img className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl" src="/assets/sfml-screenshot.png" alt="Capture 1" />
+          <img className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl" src={`${import.meta.env.BASE_URL}assets/sfml-screenshot.png`} alt="Capture 1" />
           {/* ajoute d'autres captures si tu veux */}
         </div>
       </Section>

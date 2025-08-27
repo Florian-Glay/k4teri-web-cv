@@ -23,9 +23,9 @@ export default function Projects(){
     <>
       <Section title="Projets – Conception d'apps & jeux" subtitle="Sélectionne un projet pour voir la démo et les détails techniques.">
         <div className="grid md:grid-cols-3 gap-6">
-          <Card to="/projects/mariokart" img="/assets/mk-track.png" title="Mario Kart 3D — JavaScript" subtitle="Three.js · Physique · Drifts & Boosts" />
-          <Card to="/projects/sfml" img="/assets/sfml-screenshot.png" title="Simulateur automobile — C++/SFML" subtitle="Physique arcade · Gestion collisions" />
-          <Card to="/projects/unity" img="/assets/rpg-menu.png" title="RPG 2D — Unity/C#" subtitle="HUD, crafting, monde procédural" />
+          <Card to="/projects/mariokart" img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title="Mario Kart 3D — JavaScript" subtitle="Three.js · Physique · Drifts & Boosts" />
+          <Card to="/projects/sfml" img={`${import.meta.env.BASE_URL}assets/sfml-screenshot.png`} title="Simulateur automobile — C++/SFML" subtitle="Physique arcade · Gestion collisions" />
+          <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-menu.png`} title="RPG 2D — Unity/C#" subtitle="HUD, crafting, monde procédural" />
         </div>
       </Section>
     </>

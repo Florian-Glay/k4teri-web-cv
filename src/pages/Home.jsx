@@ -1,12 +1,14 @@
-import { motion } from "framer-motion";
 import Section from "../components/Section.jsx";
+
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Home(){
   return (
     <>
       <section className="relative h-[50svh] grid place-items-center overflow-hidden">
-        <img src="/assets/k4teri-banner.png" alt="banner"
-             className="absolute inset-0 w-full h-full object-cover opacity-20 scale-110" />
+  <img src={`${import.meta.env.BASE_URL}assets/k4teri-banner.png`} alt="banner"
+       className="absolute inset-0 w-full h-full object-cover opacity-20 scale-110" />
         <div className="absolute inset-0 bg-gradient-to-b from-accent/20 via-transparent to-transparent" />
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
                     className="relative text-center">
@@ -16,13 +18,13 @@ export default function Home(){
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <motion.div whileHover={{ scale: 1.02 }} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
-                <a href="/projects" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Voir les projets</a>
+                <Link to="/projects" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Voir les projets</Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
-                <a href="/music" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Écouter la musique</a>
+                <Link to="/music" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Écouter la musique</Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
-                <a href="/running" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Stats de course</a>
+                <Link to="/running" className="inline-flex items-center gap-2 bg-accent text-white rounded-xl px-5 py-2.5 hover:bg-accent-soft transition">Stats de course</Link>
             </motion.div>
             
           </div>
