@@ -1,0 +1,52 @@
+export const yearTotals = [
+  // Août 2021 → Août 2022 (placeholders — remplace par tes vrais totaux)
+  { year: "2022", month: "Feb", km: 8.4 },
+  { year: "2022", month: "Mar", km: 39.9 },
+  { year: "2022", month: "Apr", km: 32.9 },
+  { year: "2022", month: "May", km: 127.0 },
+  { year: "2022", month: "Jun", km: 123.4 },
+  { year: "2022", month: "Jul", km: 84.5 },
+  { year: "2022", month: "Aug", km: 84.9 },
+
+  // Août 2022 → Août 2023 (placeholders — remplace)
+  { year: "2022", month: "Sep", km: 47.1 },
+  { year: "2022", month: "Oct", km: 131.2 },
+  { year: "2022", month: "Nov", km: 32.2 },
+  { year: "2022", month: "Dec", km: 33.4 },
+  { year: "2023", month: "Jan", km: 36.0 },
+  { year: "2023", month: "Feb", km: 80.6 },
+  { year: "2023", month: "Mar", km: 72.7 },
+  { year: "2023", month: "Apr", km: 33.6 },
+  { year: "2023", month: "May", km: 47.5 },
+  { year: "2023", month: "Jun", km: 75.7 },
+  { year: "2023", month: "Jul", km: 32.6 },
+  { year: "2023", month: "Aug", km: 108.4 },
+
+  // Août 2023 → Août 2024 (placeholders — remplace)
+  { year: "2023", month: "Sep", km: 47.0 },
+  { year: "2023", month: "Oct", km: 42.7 },
+  { year: "2023", month: "Nov", km: 10.7 },
+  { year: "2023", month: "Dec", km: 26.2 },
+  { year: "2024", month: "Jan", km: 35.1 },
+  { year: "2024", month: "Feb", km: 45.1 },
+  { year: "2024", month: "Mar", km: 7.0 },
+  { year: "2024", month: "Apr", km: 25.1 },
+  { year: "2024", month: "May", km: 29.5 },
+  { year: "2024", month: "Jun", km: 25.7 },
+  { year: "2024", month: "Jul", km: 46.0 },
+  { year: "2024", month: "Aug", km: 22.3 },
+
+  // Août 2024 → Août 2025 (placeholders — remplace)
+  { year: "2024", month: "Sep", km: 15.8 },
+  { year: "2024", month: "Oct", km: 24.0 },
+  { year: "2024", month: "Nov", km: 0 },
+  { year: "2024", month: "Dec", km: 9.5 },
+  { year: "2025", month: "Jan", km: 0 },
+  { year: "2025", month: "Feb", km: 0 },
+  { year: "2025", month: "Mar", km: 26.5 },
+  { year: "2025", month: "Apr", km: 48.6 },
+  { year: "2025", month: "May", km: 54.6 },
+  { year: "2025", month: "Jun", km: 23.0 },
+  { year: "2025", month: "Jul", km: 33.2 },
+  { year: "2025", month: "Aug", km: 77.0 },
+];

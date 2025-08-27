@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+/* Layout heights */
+:root { --nav-h: 64px; }
+main { min-height: calc(100dvh - var(--nav-h)); }
