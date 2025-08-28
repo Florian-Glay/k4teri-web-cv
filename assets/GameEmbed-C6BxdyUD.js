@@ -1,0 +1,1 @@
+import{j as r}from"./index-BprFEy0_.js";const a=({slug:e,height:l=720})=>r.jsx("div",{className:"bg-neutral-900/60 rounded-2xl border border-neutral-800 shadow-xl overflow-hidden",children:r.jsx("iframe",{title:e,src:`/k4teri-web-cv//games/${e}/index.html`,className:"w-full",style:{height:l},allowFullScreen:!0})});export{a as G};
