@@ -8,6 +8,7 @@ export default function Music(){
 
   const Card = ({ id, title }) => (
     <motion.button
+      viewport={{ once: false, amount: 0.2 }} // important
       whileHover={{ scale: 1.02 }}
       onClick={() => setCurrent(id)}
       className="text-left rounded-2xl"

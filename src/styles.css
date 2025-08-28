@@ -3,3 +3,13 @@
 /* Layout heights */
 :root { --nav-h: 64px; }
 main { min-height: calc(100dvh - var(--nav-h)); }
+
+/* Ajoute du padding-right au footer uniquement lorsque la flèche est visible */
+:root:has(#scrolltop[data-visible="true"]) footer .footer-inner {
+  padding-right: 5.5rem; /* = 88px */
+}
+@media (min-width: 768px) {
+  :root:has(#scrolltop[data-visible="true"]) footer .footer-inner {
+    padding-right: 6.5rem;
+  }
+}
