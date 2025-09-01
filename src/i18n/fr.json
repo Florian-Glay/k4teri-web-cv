@@ -1,0 +1,34 @@
+{
+  "cv": {
+    "name": "Florian Glay",
+    "footerLine": "France • +33 7 67 43 04 62"
+  },
+  "skills": {
+    "c_cpp_python": "C, C++, Python",
+    "js_three_node": "JS / Three.js / Node",
+    "unity": "Unity (C#)",
+    "sql_mamp": "SQL / MAMP"
+  },
+  "home": {
+    "quickOverview": "Aperçu rapide",
+    "cards": {
+      "devGames": { "title": "Conception d’apps & Jeux", "desc": "Mario Kart 3D (JS), Simulateur auto (C++/SFML), RPG 2D (Unity/C#)" },
+      "music": { "title": "Musique", "desc": "Composition électronique — chaîne YouTube @K4TERI4music" },
+      "running": { "title": "Course à pied", "desc": "+1500 km cumulés • objectifs performance et régularité" }
+    },
+    "buttons": {
+      "projects": "Voir les projets",
+      "music": "Écouter la musique",
+      "running": "Stats de course"
+    }
+  },
+  "site": {
+    "brand": "GLAY Florian",
+    "nav": { "projects": "Projets", "music": "Musique", "running": "Course", "cv": "CV" },
+    "cta": { "contact": "Me contacter", "downloadCv": "Télécharger le PDF" },
+    "hero": {
+      "headline": "Bienvenue sur mon portfolio",
+      "sub": "Étudiant ingénieur (ISEN Lille) — Dev Web & Jeux • C/C++ • JavaScript • Unity"
+    }
+  }
+}

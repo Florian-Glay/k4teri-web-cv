@@ -1,9 +1,11 @@
-// src/main.jsx
-import React, { Suspense, lazy } from "react";
+import "./i18n/i18n";
+import React, { Suspense, lazy, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate, Outlet, useParams, useLocation } from "react-router-dom";
 import App from "./App.jsx";
 import "./styles.css";
+import i18n from "i18next";
+
 
 // --- Lazy imports des pages
 const Home             = lazy(() => import("./pages/Home.jsx"));
@@ -15,7 +17,10 @@ const Music            = lazy(() => import("./pages/Music.jsx"));
 const Running          = lazy(() => import("./pages/Running.jsx"));
 const CV               = lazy(() => import("./pages/CV.jsx"));
 
+
+
 // --- Fallback de chargement (tu peux le styliser comme tu veux)
+
 function PageLoader() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-neutral-950">
@@ -29,6 +34,7 @@ function PageLoader() {
 const withSuspense = (node) => (
   <Suspense fallback={<PageLoader />}>{node}</Suspense>
 );
+
 
 const router = createBrowserRouter(
   [
@@ -52,6 +58,70 @@ const router = createBrowserRouter(
     basename: import.meta.env.BASE_URL,
   }
 );
+
+/*
+function LangGuard() {
+  const { lang } = useParams();            // "fr" ou "en"
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (lang && i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+      localStorage.setItem("lang", lang);
+    }
+  }, [lang]);
+
+  // Petite sécurité : si l’URL contient un autre code de langue, redirige vers fr
+  if (!/^(fr|en)$/.test(lang)) return <Navigate to="/fr" replace />;
+
+  return (
+    <Suspense
+      fallback={
+        <div className="fixed inset-0 grid place-items-center text-neutral-300 text-xl">
+          Chargement…
+        </div>
+      }
+    >
+      <App>
+        <Outlet />
+      </App>
+    </Suspense>
+  );
+}
+
+const routes = [
+  // Accueil « racine » -> redirige vers langue préférée
+  {
+    path: "/",
+    element: <Navigate to={`/${localStorage.getItem("lang") || "fr"}`} replace />
+  },
+
+  // Arbre localisé
+  {
+    path: "/:lang(en|fr)",
+    element: <LangGuard />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "projects", element: <Projects /> },
+      { path: "projects/mariokart", element: <ProjectMarioKart /> },
+      { path: "projects/sfml", element: <ProjectSFML /> },
+      { path: "projects/unity", element: <ProjectUnity /> },
+      { path: "music", element: <Music /> },
+      { path: "running", element: <Running /> },
+      { path: "cv", element: <CV /> }
+    ]
+  },
+
+  // Tout le reste -> vers la langue préférée
+  { path: "*", element: <Navigate to={`/${localStorage.getItem("lang") || "fr"}`} replace /> }
+];
+
+
+const router = createBrowserRouter(routes, {
+  basename: import.meta.env.BASE_URL,  // <- ton sous-dossier GitHub Pages
+});
+*/
+
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
