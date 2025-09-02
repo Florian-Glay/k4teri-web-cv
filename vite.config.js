@@ -6,4 +6,5 @@ export default defineConfig({
   plugins: [react()],
   // base = racine en dev, sous-chemin en prod (GitHub Pages)
   base: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
+  
 });

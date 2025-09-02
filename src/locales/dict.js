@@ -2,7 +2,7 @@ export const dict = {
   fr: {
     site: {
       brand: "GLAY Florian",
-      nav: { projects: "Projets", music: "Musique", running: "Course", cv: "CV" },
+      nav: { projects: "Projets", music: "Musique", running: "Course", cv: "CV", close: "Fermer" },
       cta: { contact: "Me contacter", downloadCv: "Télécharger le PDF" },
       hero: {
         headline: "Portfolio de GLAY Florian",
@@ -23,8 +23,8 @@ export const dict = {
   },
   en: {
     site: {
-      brand: "FLORIAN GLAY",
-      nav: { projects: "Projects", music: "Music", running: "Running", cv: "Resume" },
+      brand: "GLAY Florian",
+      nav: { projects: "Projects", music: "Music", running: "Running", cv: "Resume" ,close: "Close" },
       cta: { contact: "Contact me", downloadCv: "Download PDF" },
       hero: {
         headline: "GLAY Florian's portfolio",

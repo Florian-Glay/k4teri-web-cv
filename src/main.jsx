@@ -1,6 +1,7 @@
+// main.jsx
 import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import {createBrowserRouter, RouterProvider, redirect} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
 import "./styles.css";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
@@ -13,62 +14,31 @@ import Running from "./pages/Running.jsx";
 import CV from "./pages/CV.jsx";
 import { LangProvider } from "./lib/lang.jsx";
 
-/*
-// --- Lazy imports des pages
-const Home             = lazy(() => import("./pages/Home.jsx"));
-const Projects         = lazy(() => import("./pages/Projects.jsx"));
-const ProjectMarioKart = lazy(() => import("./pages/ProjectMarioKart.jsx"));
-const ProjectSFML      = lazy(() => import("./pages/ProjectSFML.jsx"));
-const ProjectUnity     = lazy(() => import("./pages/ProjectUnity.jsx"));
-const Music            = lazy(() => import("./pages/Music.jsx"));
-const Running          = lazy(() => import("./pages/Running.jsx"));
-const CV               = lazy(() => import("./pages/CV.jsx"));*/
+// 1) Choisir une langue par défaut (mémoire > navigateur > "fr")
+const defaultLang = (() => {
+  try {
+    const saved = localStorage.getItem("lang");
+    if (saved === "fr" || saved === "en") return saved;
+  } catch {}
+  const nav = (navigator.language || navigator.userLanguage || "fr").toLowerCase();
+  return nav.startsWith("fr") ? "fr" : "en";
+})();
 
-// --- Fallback de chargement (tu peux le styliser comme tu veux)
-
-/*
 const routes = [
-  { path: "/", element: <Navigate to="/fr" replace /> },
-  {
-    path: "/:lang(en|fr)",
-    element: <LangLayout />,
-    children: [
-      { index: true, element: withSuspense(<Home />) },
-      { path: "projects", element: withSuspense(<Projects />) },
-      { path: "projects/mariokart", element: withSuspense(<ProjectMarioKart />) },
-      { path: "projects/sfml", element: withSuspense(<ProjectSFML />) },
-      { path: "projects/unity", element: withSuspense(<ProjectUnity />) },
-      { path: "music", element: withSuspense(<Music />) },
-      { path: "running", element: withSuspense(<Running />) },
-      { path: "cv", element: withSuspense(<CV />) },
-    ],
-  },
-  { path: "*", element: <Navigate to="/fr" replace /> },
-];
+  // Redirection racine -> /<defaultLang>
+  { path: "/", loader: () => redirect(`/${defaultLang}`) },
 
-const router = createBrowserRouter(routes, {
-  basename: import.meta.env.BASE_URL, // "/" en dev, "/<repo>/" sur GH Pages
-});
-
-createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);*/
-
-const router = createBrowserRouter([
-  // redirection racine vers /fr
-  { path: "/", loader: () => redirect("/fr") },
-  // toutes les pages sont sous /:lang
+  // Toutes les pages sont sous /:lang
   {
     path: "/:lang",
     element: (
-      <Suspense fallback={
-        <div className="fixed inset-0 grid place-items-center text-neutral-300">
-          Chargement…
-        </div>
-      }>
-        {/* LangProvider est ICI, donc dans le Router => useParams OK */}
+      <Suspense
+        fallback={
+          <div className="fixed inset-0 grid place-items-center text-neutral-300">
+            Chargement…
+          </div>
+        }
+      >
         <LangProvider>
           <App />
         </LangProvider>
@@ -85,7 +55,15 @@ const router = createBrowserRouter([
       { path: "cv", element: <CV /> },
     ],
   },
-]);
+
+  // Optionnel : catch-all -> /<defaultLang>
+  { path: "*", loader: () => redirect(`/${defaultLang}`) },
+];
+
+// ⚠️ ICI le basename est passé en **option**, pas dans les routes
+const router = createBrowserRouter(routes, {
+  basename: import.meta.env.BASE_URL, // "/" en dev, "/<repo>/" sur GH Pages
+});
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
