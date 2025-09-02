@@ -1,15 +1,8 @@
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useLang, useSwitchLanguage } from "../lib/lang";
 
 export default function LanguageSwitcher() {
-  const { lang } = useParams();                   // fr | en
-  const navigate = useNavigate();
-  const { pathname, search, hash } = useLocation();
-
-  const switchTo = (next) => {
-    const nextPath = pathname.replace(/^\/(en|fr)(?=\/|$)/, `/${next}`);
-    localStorage.setItem("lang", next);
-    navigate(`${nextPath}${search}${hash}`, { replace: true });
-  };
+  const { lang } = useLang();
+  const switchTo = useSwitchLanguage();
 
   return (
     <div className="inline-flex rounded-xl border border-neutral-700 overflow-hidden">
