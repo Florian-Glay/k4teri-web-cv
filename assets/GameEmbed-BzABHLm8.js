@@ -1,1 +1,0 @@
-import{j as r}from"./index-T1-u3oy8.js";const s=({slug:e,height:l=720})=>r.jsx("div",{className:"bg-neutral-900/60 rounded-2xl border border-neutral-800 shadow-xl overflow-hidden",children:r.jsx("iframe",{title:e,src:`/portfolio//games/${e}/index.html`,className:"w-full",style:{height:l},allowFullScreen:!0})});export{s as G};
