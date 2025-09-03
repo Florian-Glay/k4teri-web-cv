@@ -27,11 +27,11 @@ export default function Projects(){
 
   return (
     <>
-      <Section title="Projets – Conception d'apps & jeux" subtitle="Sélectionne un projet pour voir la démo et les détails techniques.">
+      <Section title={t("projets.projects")} subtitle={t("projets.selectProject")}>
         <div className="grid md:grid-cols-3 gap-6">
-          <Card to="/projects/mariokart"  img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title="Mario Kart 3D — JavaScript" subtitle="Three.js · Physique · Drifts & Boosts" subtitle2="Jouable sur ce site" color ="green"/>
-          <Card to="/projects/sfml" img={`${import.meta.env.BASE_URL}assets/sfml-screenshot.png`} title="Simulateur automobile — C++/SFML" subtitle="Gestion des collisions" subtitle2="Démo vidéo" color ="red"/>
-          <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-menu.png`} title="RPG 2D — Unity/C#" subtitle="HUD, crafting, monde procédural" subtitle2="Jouable sur ce site" color ="green"/>
+          <Card to="/projects/mariokart"  img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+          <Card to="/projects/sfml" img={`${import.meta.env.BASE_URL}assets/sfml-screenshot.png`} title={t("projets.smTitle")} subtitle={t("projets.smSubtitle")} subtitle2={t("projets.videoDemo")} color ="red"/>
+          <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-menu.png`} title={t("projets.rpgTitle")} subtitle={t("projets.rpgSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
         </div>
       </Section>
     </>

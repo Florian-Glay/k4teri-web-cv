@@ -1,10 +1,14 @@
 import Section from "../components/Section.jsx";
 import { motion } from "framer-motion";
+import { useLang, useLocaleLink } from "../lib/lang";
 
 export default function ProjectSFML(){
+  const { t } = useLang();
+  const link = useLocaleLink();
+
   return (
     <>
-      <Section title="Simulateur automobile — C++ / SFML" subtitle={" "}>
+      <Section title={t("projets.carSimulator.carSim")} subtitle={" "}>
         {/* Démo vidéo locale */}
         <div className="flex justify-center">
           <div className="w-full md:w-3/4 lg:w-2/3 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl overflow-hidden">
@@ -23,7 +27,7 @@ export default function ProjectSFML(){
         </div>
       </Section>
 
-      <Section title="Captures">
+      <Section title={t("projets.carSimulator.screenshots")} subtitle={" "}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {[
             "sfml-screenshot.png",
@@ -44,15 +48,15 @@ export default function ProjectSFML(){
         </div>
       </Section>
 
-      <Section title="Fiche technique">
+      <Section title={t("projets.carSimulator.techSheet")} subtitle={" "}>
         <div className="grid lg:grid-cols-1 gap-6">
           <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
             <h4 className="font-semibold mb-2">Stack</h4>
             <ul className="list-disc pl-5 text-neutral-300 text-sm space-y-1">
               <li>C++17 · SFML 2.6</li>
-              <li>Physique arcade (accélération, freinage, dérapage)</li>
-              <li>Gestion collisions / checkpoints</li>
-              <li>Éditeur de circuits simple (JSON)</li>
+              <li>{t("projets.carSimulator.arcadePhysics")}</li>
+              <li>{t("projets.carSimulator.collisionCheck")}</li>
+              <li>{t("projets.carSimulator.trackEditor")}</li>
             </ul>
           </div>
         </div>

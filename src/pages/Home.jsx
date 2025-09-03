@@ -61,21 +61,21 @@ export default function Home(){
         </motion.div>
       </section>
 
-      <Section title="Aperçu rapide" subtitle=" ">
+      <Section title={t("home.quickOverview")} subtitle=" ">
         <div className="grid md:grid-cols-3 gap-6">
           {/* Cartes info : même principe, pas d'animation sur le conteneur flouté */}
           {[
             {
-              title: "Conception d'apps & Jeux",
-              text: "Mario Kart 3D (JS), Simulateur auto (C++/SFML), RPG 2D (Unity/C#)",
+              title: t("home.appsGames"),
+              text: t("home.appsGamesDesc"),
             },
             {
-              title: "Musique",
-              text: "Composition électronique — chaîne YouTube @K4TERI4music",
+              title: t("home.music"),
+              text: t("home.musicDesc"),
             },
             {
-              title: "Course à pied",
-              text: "+1500 km cumulés · objectifs performance et régularité",
+              title: t("home.running"),
+              text: t("home.runningDesc"),
             },
           ].map((card, i) => (
             <div

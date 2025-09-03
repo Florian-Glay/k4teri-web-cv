@@ -2,8 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Section from "../components/Section.jsx";
 import { videos } from "../data/music.js";
+import { useLang, useLocaleLink } from "../lib/lang";
 
 export default function Music(){
+  const { t } = useLang();
+  const link = useLocaleLink();
   const [current, setCurrent] = useState(videos[0]?.id);
 
   const Card = ({ id, title }) => (
@@ -31,7 +34,7 @@ export default function Music(){
 
   return (
     <>
-      <Section title="K4TERI — Musique" subtitle="Sélectionne une miniature pour jouer la vidéo.">
+      <Section title={t("music.k4teriMusic")} subtitle={t("music.selectThumb")}>
         <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl overflow-hidden">
           {current && (
             <iframe

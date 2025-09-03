@@ -1,5 +1,5 @@
-// src/pages/CV.jsx
 import React from "react";
+import { useLang, useLocaleLink } from "../lib/lang";
 
 const Badge = ({ children }) => (
   <span className="inline-flex items-center rounded-full border border-neutral-700 bg-neutral-800/60 px-3 py-1 text-sm text-neutral-200">
@@ -16,6 +16,8 @@ const Section = ({ title, children }) => (
 
 export default function CV() {
   // IMPORTANT (GitHub Pages) : utilise BASE_URL pour référencer le PDF dans /public/
+  const { t, lang } = useLang();
+  const link = useLocaleLink();
   const pdfHref = `${import.meta.env.BASE_URL}assets/CV_Florian_Glay_FR.pdf`;
 
   return (

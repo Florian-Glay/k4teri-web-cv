@@ -1,27 +1,31 @@
 import Section from "../components/Section.jsx";
 import GameEmbed from "../components/GameEmbed.jsx";
 import { motion } from "framer-motion";
+import { useLang, useLocaleLink } from "../lib/lang";
 
 export default function ProjectUnity(){
+  const { t } = useLang();
+  const link = useLocaleLink();
+
   return (
     <>
       <Section
-        title="RPG 2D (Unity/C#) — Démo WebGL"
-        subtitle="Jeu jouable sur PC uniquement"
+        title={t("projets.rpgUnity.rpg2d")}
+        subtitle={t("projets.rpgUnity.pcOnly")}
       >
         {/* Charge /public/games/unity/index.html */}
         <GameEmbed slug="unity" height={720} />
       </Section>
 
-      <Section title="Comment Jouer">
+      <Section title={t("projets.rpgUnity.pcOnly")} subtitle={" "}>
         <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
           <ul className="list-disc pl-5 text-neutral-300 text-sm space-y-1">
-            <li>Se déplacer avec "ZQSD" </li>
-            <li>Sélctionner un objet avec la molette </li>
-            <li>Récupérer un objet avec "E" </li>
-            <li>Poser un objet avec "F" puis cliquer (sortir du mode construction avec "F" à nouveau)</li>
-            <li>Inventaire & crafting avec la touche "tab"</li>
-            <li>Attaquer avec souris, faire des mouvement et maintenir clique gauche</li>
+            <li>{t("projets.rpgUnity.move")}</li>
+            <li>{t("projets.rpgUnity.selectItem")}</li>
+            <li>{t("projets.rpgUnity.pickup")}</li>
+            <li>{t("projets.rpgUnity.placeItem")}</li>
+            <li>{t("projets.rpgUnity.inventory")}</li>
+            <li>{t("projets.rpgUnity.attack")}</li>
           </ul>
         </div>
       </Section>
@@ -40,13 +44,13 @@ export default function ProjectUnity(){
         </div>
       </Section>
 
-      <Section title="Fonctionnalités">
+      <Section title={t("projets.rpgUnity.features")}>
         <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-6">
           <ul className="list-disc pl-5 text-neutral-300 text-sm space-y-1">
-            <li>Inventaire & crafting</li>
-            <li>HUD (vie, faim, endurance), barre d’actions</li>
-            <li>Cycle jour/nuit & spawn de créatures</li>
-            <li>Monde procédural en tuiles, sauvegarde JSON</li>
+            <li>{t("projets.rpgUnity.inv")}</li>
+            <li>{t("projets.rpgUnity.hud")}</li>
+            <li>{t("projets.rpgUnity.dayNight")}</li>
+            <li>{t("projets.rpgUnity.proceduralWorld")}</li>
           </ul>
         </div>
       </Section>

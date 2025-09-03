@@ -1,4 +1,5 @@
 import Section from "../components/Section.jsx";
+import { useLang, useLocaleLink } from "../lib/lang";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -62,22 +63,24 @@ export default function Running() {
   const totalKm = data.reduce((s, r) => s + r.km, 0);
   const thisYear = new Date().getFullYear();
   const currentYearKm = data.filter(d => d.year === thisYear).reduce((s, r) => s + r.km, 0);
+  const { t, lang } = useLang();
+  const link = useLocaleLink();
 
   return (
     <>
-      <Section title="Course à pied" subtitle="Volume cumulé par mois (toutes années)">
+      <Section title={t("running.runningTitle")} subtitle={t("running.cumulatedVolume")}>
         <div className="grid md:grid-cols-3 gap-6">
-          <StatCard label="Total cumulé" value={`${Math.round(totalKm)} km`} />
-          <StatCard label={`Année ${thisYear}`} value={`${Math.round(currentYearKm)} km`} />
+          <StatCard label={t("running.totalDistance")} value={`${Math.round(totalKm)} km`} />
+          <StatCard label={`${t("running.year")} ${thisYear}`} value={`${Math.round(currentYearKm)} km`} />
           <StatCard
-            label="Mois moyen"
+            label={t("running.avgMonth")}
             value={`${Math.round((totalKm / Math.max(1, data.length)) * 100) / 100} km`}
-            hint="indicatif"
+            hint={t("running.ind")}
           />
         </div>
       </Section>
 
-      <Section title="Volume par mois (km)">
+      <Section title={t("running.monthlyVolume")}>
         <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl p-4 h-[420px] text-accent">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 36, right: 20, bottom: 16, left: 0 }}>
@@ -87,7 +90,7 @@ export default function Running() {
                 dataKey="dateISO"
                 tickFormatter={(iso) => {
                   const d = new Date(iso);
-                  return MONTHS_FR[d.getMonth()];
+                  return (lang === "fr" ? MONTHS_FR : MONTHS)[d.getMonth()];
                 }}
                 tick={{ fill: "rgba(229,229,229,0.85)" }}
                 tickMargin={8}
@@ -114,7 +117,7 @@ export default function Running() {
                 }}
                 labelFormatter={(iso) => {
                   const d = new Date(iso);
-                  return `${MONTHS_FR[d.getMonth()]} ${d.getFullYear()}`;
+                  return `${(lang === "fr" ? MONTHS_FR : MONTHS)[d.getMonth()]} ${d.getFullYear()}`;
                 }}
                 formatter={(v) => [`${v} km`, "km"]}
               />
