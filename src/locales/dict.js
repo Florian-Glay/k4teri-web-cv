@@ -83,6 +83,7 @@ export const dict = {
     music:{
       k4teriMusic: "K4TERI — Musique",
       selectThumb: "Sélectionne une miniature pour jouer la vidéo.",
+      selected: "En lecture",
     },
     running: {
       runningTitle: "Course à pied",
@@ -262,6 +263,7 @@ export const dict = {
     music:{
       k4teriMusic: "K4TERI — Music",
       selectThumb: "Select a thumbnail to play the video.",
+      selected: "Now Playing",
     },
     running: {
       runningTitle: "Running",

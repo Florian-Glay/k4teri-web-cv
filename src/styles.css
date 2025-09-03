@@ -13,3 +13,6 @@ main { min-height: calc(100dvh - var(--nav-h)); }
     padding-right: 6.5rem;
   }
 }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.before\:animate-spin-slow::before { animation: spin-slow 6s linear infinite; }

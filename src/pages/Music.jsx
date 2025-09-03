@@ -1,36 +1,36 @@
-import { useState } from "react";
+// Music.jsx
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Section from "../components/Section.jsx";
 import { videos } from "../data/music.js";
-import { useLang, useLocaleLink } from "../lib/lang";
+import { useLang } from "../lib/lang";
 
 export default function Music(){
   const { t } = useLang();
-  const link = useLocaleLink();
-  const [current, setCurrent] = useState(videos[0]?.id);
+  const [params, setParams] = useSearchParams();
 
-  const Card = ({ id, title }) => (
-    <motion.button
-      viewport={{ once: false, amount: 0.2 }} // important
-      whileHover={{ scale: 1.02 }}
-      onClick={() => setCurrent(id)}
-      className="text-left rounded-2xl"
-    >
-      <div className="bg-gradient-to-tr from-accent via-purple-600 to-pink-500 p-[2px] rounded-2xl">
-        <div className="bg-neutral-950 rounded-2xl overflow-hidden">
-          <img
-            src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
-            alt={title}
-            className="w-full aspect-video object-cover"
-          />
-          <div className="p-4">
-            <h4 className="font-semibold">{title}</h4>
-            <p className="text-sm text-neutral-400">@K4TERI4music</p>
-          </div>
-        </div>
-      </div>
-    </motion.button>
-  );
+  // current depuis l’URL (?v=...) ou 1ère vidéo
+  const firstId = videos[0]?.id ?? null;
+  const initial = useMemo(() => {
+    const v = params.get("v");
+    return videos.some(x => x.id === v) ? v : firstId;
+  }, [params, firstId]);
+  const [current, setCurrent] = useState(initial);
+
+  useEffect(() => {
+    const v = params.get("v");
+    if (v && v !== current && videos.some(x => x.id === v)) {
+      setCurrent(v);
+    }
+  }, [params, current]);
+
+  const selectVideo = (id) => {
+    setCurrent(id);
+    const p = new URLSearchParams(params);
+    p.set("v", id);
+    setParams(p, { replace: true });
+  };
 
   return (
     <>
@@ -51,10 +51,88 @@ export default function Music(){
       <Section>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {videos.map(v => (
-            <Card key={v.id} id={v.id} title={v.title} />
+            <Card
+              key={v.id}
+              id={v.id}
+              title={v.title}
+              selected={v.id === current}
+              onSelect={() => selectVideo(v.id)}
+            />
           ))}
         </div>
       </Section>
     </>
+  );
+}
+
+/** --------- Carte miniature --------- */
+function Card({ id, title, selected, onSelect }) {
+  const { t } = useLang();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (selected && ref.current) {
+      ref.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  }, [selected]);
+
+  return (
+    
+    <article
+      ref={ref}
+      role="button"
+      tabIndex={0}
+      aria-pressed={selected}
+      aria-selected={selected}
+      onClick={onSelect}
+      onKeyDown={(e)=> (e.key === "Enter" || e.key === " ") && onSelect()}
+      className={[
+        "relative text-left rounded-2xl overflow-hidden cursor-pointer outline-none",
+        "bg-neutral-950 border transition-all h-full flex flex-col",
+        selected
+          ? "ring-2 ring-emerald-400 shadow-2xl border-transparent"
+          : "border-white/10 hover:ring-1 hover:ring-white/15",
+      ].join(" ")}
+    >
+      {/* Badge En lecture */}
+      {selected && (
+        <div className="absolute top-2 left-2 z-10">
+          <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium
+                            bg-black/70 text-white backdrop-blur border border-white/10">
+            <EqualizerIcon />
+            {t("music.selected")}
+          </span>
+        </div>
+      )}
+
+      <div className="bg-gradient-to-tr from-accent via-purple-600 to-pink-500 p-[2px] rounded-2xl">
+        <div className="bg-neutral-950 rounded-2xl overflow-hidden">
+          <img
+            src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+            alt={title}
+            className="w-full aspect-video object-cover"
+            loading="lazy"
+          />
+          <motion.div
+            className="p-4 min-h-[4.5rem]"
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.15 }}
+          >
+            <h4 className="font-semibold line-clamp-1">{title}</h4>
+            <p className="text-sm text-neutral-400">@K4TERI4music</p>
+          </motion.div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function EqualizerIcon(){
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" className="opacity-90 fill-current">
+      <rect x="3" y="10" width="3" height="8" rx="1"></rect>
+      <rect x="10.5" y="6" width="3" height="12" rx="1"></rect>
+      <rect x="18" y="12" width="3" height="6" rx="1"></rect>
+    </svg>
   );
 }
