@@ -18,7 +18,10 @@ export default function CV() {
   // IMPORTANT (GitHub Pages) : utilise BASE_URL pour référencer le PDF dans /public/
   const { t, lang } = useLang();
   const link = useLocaleLink();
-  const pdfHref = `${import.meta.env.BASE_URL}assets/CV_Florian_Glay_FR.pdf`;
+  const pdfHref =
+    lang === "en"
+      ? `${import.meta.env.BASE_URL}assets/CV_Florian_Glay_EN.pdf`
+      : `${import.meta.env.BASE_URL}assets/CV_Florian_Glay_FR.pdf`;
 
   return (
     <div className="space-y-8">
@@ -31,7 +34,7 @@ export default function CV() {
                 Florian Glay
             </h1>
             <p className="mt-2 text-neutral-300">
-                Étudiant ingénieur (ISEN Lille) — Dev Web & Jeux • C/C++ • JavaScript • Unity
+                {t("cv.profile.subtitle")}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
                 <Badge>C, C++, Python</Badge>
@@ -56,7 +59,7 @@ export default function CV() {
                 href="mailto:florian.glay@student.junia.com"
                 className="w-full rounded-xl border border-neutral-700 bg-neutral-800/70 px-4 py-2 text-center text-neutral-100 hover:bg-neutral-800 transition"
             >
-                Me contacter
+                {t("cv.profile.cta.contact")}
             </a>
             <a
                 href={pdfHref}
@@ -64,7 +67,7 @@ export default function CV() {
                 rel="noreferrer"
                 className="w-full rounded-xl bg-accent text-white px-4 py-2 text-center hover:opacity-95 transition"
             >
-                Télécharger le PDF
+                {t("cv.profile.cta.downloadCv")}
             </a>
             </div>
 
@@ -87,74 +90,73 @@ export default function CV() {
 
       {/* Formation & Expériences */}
       <div className="grid md:grid-cols-2 gap-6">
-        <Section title="Formation">
+        <Section title={t("cv.education.title")}>
           <ul className="space-y-4">
             <li>
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-medium text-neutral-100">
-                    Cycle Ingénieur – Informatique & Réseaux Numériques (3ᵉ année)
+                    {t("cv.education.items")[0].degree}
                   </p>
-                  <p className="text-neutral-300">ISEN Lille, France</p>
+                  <p className="text-neutral-300">{t("cv.education.items")[0].school}</p>
                 </div>
-                <span className="text-sm text-neutral-400">2023 — Présent</span>
+                <span className="text-sm text-neutral-400">{t("cv.education.items")[0].years}</span>
               </div>
             </li>
             <li>
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-medium text-neutral-100">
-                    Baccalauréat Général — Mention Très Bien
+                    {t("cv.education.items")[1].degree}
                   </p>
                   <p className="text-neutral-300">
-                    Institut de Genech — Spécialités Mathématiques, NSI
+                    {t("cv.education.items")[1].school}
                   </p>
                 </div>
-                <span className="text-sm text-neutral-400">2020 — 2023</span>
+                <span className="text-sm text-neutral-400">{t("cv.education.items")[1].years}</span>
               </div>
             </li>
           </ul>
         </Section>
 
-        <Section title="Expériences professionnelles">
+        <Section title={t("cv.experience.title")}>
           <ul className="space-y-5">
             <li>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-medium text-neutral-100">Stagiaire — Support Opérationnel</p>
-                  <p className="text-neutral-300">Norcap, Roubaix — 5 semaines</p>
+                  <p className="font-medium text-neutral-100">{t("cv.experience.items")[0].role}</p>
+                  <p className="text-neutral-300">{t("cv.experience.items")[0].place}</p>
                   <p className="mt-1 text-neutral-400 text-sm">
-                    Aide aux opérations logistiques (préparation de commandes, rangement,
-                    participation à la fluidité des opérations).
+                    {t("cv.experience.items")[0].details}
                   </p>
                 </div>
-                <span className="text-sm text-neutral-400">2024</span>
+                <span className="text-sm text-neutral-400">{t("cv.experience.items")[0].year}</span>
               </div>
             </li>
 
             <li>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-medium text-neutral-100">Stagiaire Développeur</p>
-                  <p className="text-neutral-300">3Axes Institut, Tourcoing — 2 semaines</p>
+                  <p className="font-medium text-neutral-100">{t("cv.experience.items")[1].role}</p>
+                  <p className="text-neutral-300">{t("cv.experience.items")[1].place}</p>
                   <p className="mt-1 text-neutral-400 text-sm">
-                    Contribution à un outil interne en C++ (première immersion pro).
+                    {t("cv.experience.items")[1].details}
                   </p>
                 </div>
-                <span className="text-sm text-neutral-400">2021</span>
+                <span className="text-sm text-neutral-400">{t("cv.experience.items")[1].year}</span>
               </div>
             </li>
 
             <li>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-medium text-neutral-100">Stage d’observation</p>
-                  <p className="text-neutral-300">Eurobaut, Denain — 1 semaine</p>
+                  <p className="font-medium text-neutral-100">{t("cv.experience.items")[2].role}</p>
+                  <p className="text-neutral-300">{t("cv.experience.items")[2].place}</p>
                   <p className="mt-1 text-neutral-400 text-sm">
-                    Découverte de l’organisation d’une entreprise et des métiers industriels.
+                    {t("cv.experience.items")[2].details}
                   </p>
                 </div>
-                <span className="text-sm text-neutral-400">2020</span>
+                <span className="text-sm text-neutral-400">{t("cv.experience.items")[2].year}</span>
               </div>
             </li>
           </ul>
@@ -163,10 +165,10 @@ export default function CV() {
 
       {/* Compétences & Projets */}
       <div className="grid md:grid-cols-2 gap-6">
-        <Section title="Compétences techniques">
+        <Section title={t("cv.skills.title")}>
           <div className="space-y-3">
             <div>
-              <p className="font-medium text-neutral-200 mb-2">Langages</p>
+              <p className="font-medium text-neutral-200 mb-2">{t("cv.skills.langs")}</p>
               <div className="flex flex-wrap gap-2">
                 <Badge>C</Badge>
                 <Badge>C++</Badge>
@@ -177,7 +179,7 @@ export default function CV() {
               </div>
             </div>
             <div>
-              <p className="font-medium text-neutral-200 mb-2">Web & Outils</p>
+              <p className="font-medium text-neutral-200 mb-2">{t("cv.skills.tools")}</p>
               <div className="flex flex-wrap gap-2">
                 <Badge>HTML</Badge>
                 <Badge>CSS / Tailwind</Badge>
@@ -192,26 +194,26 @@ export default function CV() {
           </div>
         </Section>
 
-        <Section title="Projets marquants">
+        <Section title={t("cv.projects.title")}>
           <ul className="space-y-4">
             <li>
-              <p className="font-medium text-neutral-100">Jeu 3D type Mario Kart (JavaScript)</p>
+              <p className="font-medium text-neutral-100">{t("cv.projects.items")[0].name}</p>
               <p className="text-neutral-400 text-sm">
-                Mécaniques de drift/boost, terrains optimisés, HUD, caméra 3ᵉ personne.
+                {t("cv.projects.items")[0].details}
               </p>
             </li>
             <li>
               <p className="font-medium text-neutral-100">
-                Simulateur automobile (C++ / SFML)
+                {t("cv.projects.items")[1].name}
               </p>
               <p className="text-neutral-400 text-sm">
-                Simulation 2D/3D avec gestion entrée, physique simple et rendu temps réel.
+                {t("cv.projects.items")[1].details}
               </p>
             </li>
             <li>
-              <p className="font-medium text-neutral-100">Jeu 2D RPG (Unity/C#)</p>
+              <p className="font-medium text-neutral-100">{t("cv.projects.items")[2].name}</p>
               <p className="text-neutral-400 text-sm">
-                Création d’un prototype jouable (systèmes de base, level design, VFX).
+                {t("cv.projects.items")[2].details}
               </p>
             </li>
           </ul>
@@ -221,28 +223,28 @@ export default function CV() {
             rel="noreferrer"
             className="mt-4 inline-block text-sm text-accent underline hover:opacity-90"
           >
-            Voir tous les projets sur GitHub →
+            {t("cv.projects.github")}
           </a>
         </Section>
       </div>
 
       {/* Langues & Intérêts */}
       <div className="grid md:grid-cols-2 gap-6">
-        <Section title="Langues">
+        <Section title={t("cv.languages.title")}>
           <div className="flex flex-wrap gap-2">
-            <Badge>Français — Natif</Badge>
-            <Badge>Anglais — B2</Badge>
-            <Badge>Allemand — A2</Badge>
-            <Badge>Japonais — A1</Badge>
+            <Badge>{t("cv.languages.list")[0]}</Badge>
+            <Badge>{t("cv.languages.list")[1]}</Badge>
+            <Badge>{t("cv.languages.list")[2]}</Badge>
+            <Badge>{t("cv.languages.list")[3]}</Badge>
           </div>
         </Section>
 
-        <Section title="Centres d’intérêt">
+        <Section title={t("cv.interests.title")}>
           <ul className="list-disc pl-5 text-neutral-300 space-y-1">
-            <li>Jeux vidéo & design numérique (création, pixel art, dev)</li>
-            <li>Course à pied (10 km : 50 min ; semi : 2h17)</li>
+            <li>{t("cv.interests.list")[0]}</li>
+            <li>{t("cv.interests.list")[1]}</li>
             <li>
-              Musique électronique — chaîne YouTube{" "}
+              {t("cv.interests.list")[2]}{" "}
               <a
                 className="underline"
                 href="https://www.youtube.com/@K4TERI4music/videos"

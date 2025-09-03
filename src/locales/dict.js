@@ -95,79 +95,85 @@ export const dict = {
     },
     cv: {
       profile: {
-        title: "Profil",
-        text: "Étudiant autonome et motivé en informatique à l’ISEN Lille, passionné par la programmation, la conception de jeux vidéo et la résolution de problèmes techniques. Actuellement en recherche d’un stage ou emploi temporaire entre juin et août 2025.",
+        subtitle: "Étudiant ingénieur (ISEN Lille) — Dev Web & Jeux • C/C++ • JavaScript • Unity",
+        cta: { contact: "Me contacter", downloadCv: "Télécharger le PDF" },
       },
-      cta: { contact: "Me contacter", downloadCv: "Télécharger le PDF" },
+      skills: {
+        title: "Compétences techniques",
+        langs: "Langages",
+        tools: "Web & Outils",
+      },
       education: {
         title: "Formation",
         items: [
           {
-            degree: "Cycle Préparatoire - Informatique et Réseaux Numériques",
-            school: "ISEN Lille, France | 2023 - Présent",
-            detail: "2ᵉ année (2024-2025)",
+            degree: "Cycle Ingénieur – Informatique & Réseaux Numériques (3ᵉ année)",
+            school: "ISEN Lille, France",
+            years: "2023 — Présent",
           },
           {
-            degree: "Baccalauréat Général – Mention Bien",
-            school: "Institut de Genech, Genech, France | 2020 - 2023",
-            detail: "Spécialités : Mathématiques, Numérique et Sciences Informatiques (NSI)",
+            degree: "Baccalauréat Général — Mention Très Bien",
+            school: "Institut de Genech — Spécialités Mathématiques, NSI",
+            years: "2020 — 2023",
           },
         ],
       },
       experience: {
-        title: "Expériences Professionnelles",
+        title: "Expériences professionnelles",
         items: [
           {
-            role: "Stagiaire – Support Opérationnel",
-            place: "Norcap, Roubaix | 2024",
-            details: [
-              "Stage de 5 semaines",
-              "Aide aux opérations logistiques : préparation de commandes, rangement et participation à la fluidité des opérations.",
-            ],
+            role: "Stagiaire — Support Opérationnel",
+            place: "Norcap, Roubaix — 5 semaines",
+            year: "2024",
+            details: "Aide aux opérations logistiques (préparation de commandes, rangement, participation à la fluidité des opérations).",
           },
           {
             role: "Stagiaire Développeur",
-            place: "3Axes Institut, Tourcoing | 2021",
-            details: [
-              "Stage de 2 semaines",
-              "Contribution au développement d’un outil interne en C++, avec une première immersion dans un environnement professionnel.",
-            ],
+            place: "3Axes Institut, Tourcoing — 2 semaines",
+            year: "2021",
+            details: "Contribution à un outil interne en C++ (première immersion pro).",
           },
           {
-            role: "Stage d’Observation",
-            place: "Eurobaut, Denain | 2020",
-            details: [
-              "Stage d’une semaine",
-              "Découverte du fonctionnement interne d’une entreprise et de divers métiers industriels.",
-            ],
+            role: "Stage d’observation",
+            place: "Eurobaut, Denain — 1 semaine",
+            year: "2020",
+            details: "Découverte de l’organisation d’une entreprise et des métiers industriels.",
           },
         ],
       },
-      skills: {
-        title: "Compétences Techniques",
-        text: "Base solide en programmation (C, C++, Python), ainsi qu’en développement web avec HTML, CSS et JavaScript, complétés par l’utilisation de Node.js, Three.js, Cannon.js, et de SQL avec MAMP pour la gestion de données.",
-        projects: [
-          "Un jeu 3D de type Mario Kart en JavaScript",
-          "Un simulateur automobile en C++ avec la bibliothèque graphique SFML",
-          "Un jeu 2D de type RPG sous Unity3D, utilisant les bases du C#",
+      projects: {
+        title: "Projets marquants",
+        items: [
+          {
+            name: "Jeu 3D type Mario Kart (JavaScript)",
+            details: "Mécaniques de drift/boost, terrains optimisés, HUD, caméra 3ᵉ personne.",
+          },
+          {
+            name: "Simulateur automobile (C++ / SFML)",
+            details: "Simulation 2D/3D avec gestion entrée, physique simple et rendu temps réel.",
+          },
+          {
+            name: "Jeu 2D RPG (Unity/C#)",
+            details: "Création d’un prototype jouable (systèmes de base, level design, VFX).",
+          },
         ],
-        github: "Projets disponibles sur mon profil GitHub : github.com/Florian-Glay",
+        github: "Voir tous les projets sur GitHub →",
       },
       languages: {
         title: "Langues",
         list: [
-          "Français : Langue maternelle",
-          "Anglais : Courant (niveau B2)",
-          "Allemand : Intermédiaire (niveau A2)",
-          "Japonais : Notions de base (niveau A1)",
+          "Français — Natif",
+          "Anglais — B2",
+          "Allemand — A2",
+          "Japonais — A1",
         ],
       },
       interests: {
-        title: "Centres d’Intérêt",
+        title: "Centres d’intérêt",
         list: [
-          "Jeux vidéo & design numérique : Création, pixel art, développement.",
-          "Course à pied : 10 km en 50 min, semi-marathon en 2h17.",
-          "Musique : Composition de musiques électroniques sur ma chaîne YouTube : K4TERI4music",
+          "Jeux vidéo & design numérique (création, pixel art, dev)",
+          "Course à pied (10 km : 50 min ; semi : 2h17)",
+          "Musique électronique — chaîne YouTube K4TERI4music",
         ],
       },
     },
@@ -269,21 +275,26 @@ export const dict = {
     cv: {
       profile: {
         title: "Profile",
-        text: "Autonomous and motivated computer science student at ISEN Lille, passionate about programming, video game design and technical problem-solving. Currently seeking an internship or temporary position from June to August 2025.",
+        subtitle: "Engineering student (ISEN Lille) — Web & Game Dev • C/C++ • JavaScript • Unity",
+        cta: { contact: "Contact me", downloadCv: "Download PDF" },
       },
-      cta: { contact: "Contact me", downloadCv: "Download PDF" },
+      skills: {
+        title: "Technical Skills",
+        langs: "Languages",
+        tools: "Web & Tools",
+      },
       education: {
         title: "Education",
         items: [
           {
-            degree: "Preparatory Program – Computer Science and Digital Networks",
-            school: "ISEN Lille, France | 2023 - Present",
-            detail: "2nd Year (2024–2025)",
+            degree: "Engineering Cycle – Computer Science & Digital Networks (3rd year)",
+            school: "ISEN Lille, France",
+            years: "2023 — Present",
           },
           {
-            degree: "French General Baccalaureate – with honors",
-            school: "Institut de Genech, Genech, France | 2020 - 2023",
-            detail: "Specializations: Mathematics, Digital and Computer Science (NSI)",
+            degree: "French General Baccalaureate — High Honors",
+            school: "Institut de Genech — Specializations: Mathematics,  Digital and Computer Science ",
+            years: "2020 — 2023",
           },
         ],
       },
@@ -291,56 +302,58 @@ export const dict = {
         title: "Professional Experience",
         items: [
           {
-            role: "Intern – Operational Support",
-            place: "Norcap, Roubaix | 2024",
-            details: [
-              "Five-week internship",
-              "Assisted with logistics operations: order preparation, organization, and workflow support.",
-            ],
+            role: "Intern — Operational Support",
+            place: "Norcap, Roubaix — 5 weeks",
+            year: "2024",
+            details: "Assisted with logistics operations (order preparation, storage, workflow support).",
           },
           {
             role: "Intern Developer",
-            place: "3Axes Institut, Tourcoing | 2021",
-            details: [
-              "Two-week internship",
-              "Contributed to the development of an internal tool using C++, gaining first exposure to a professional environment.",
-            ],
+            place: "3Axes Institut, Tourcoing — 2 weeks",
+            year: "2021",
+            details: "Contributed to an internal C++ tool (first professional immersion).",
           },
           {
             role: "Job Shadowing Intern",
-            place: "Eurobaut, Denain | 2020",
-            details: [
-              "One-week internship",
-              "Observed internal company operations and discovered various industrial professions.",
-            ],
+            place: "Eurobaut, Denain — 1 week",
+            year: "2020",
+            details: "Discovered company organization and various industrial jobs.",
           },
         ],
       },
-      skills: {
-        title: "Technical Skills",
-        text: "Strong foundation in programming (C, C++, Python) and web development using HTML, CSS, and JavaScript, with additional experience in Node.js, Three.js, Cannon.js, and SQL with MAMP for data management.",
-        projects: [
-          "A 3D Mario Kart-style game in JavaScript",
-          "A car simulation game in C++ using the SFML graphics library",
-          "A 2D RPG-style game in Unity3D using C# fundamentals",
+      projects: {
+        title: "Key Projects",
+        items: [
+          {
+            name: "3D Mario Kart-style Game (JavaScript)",
+            details: "Drift/boost mechanics, optimized tracks, HUD, third-person camera.",
+          },
+          {
+            name: "Car Simulator (C++ / SFML)",
+            details: "2D/3D simulation with input handling, simple physics, and real-time rendering.",
+          },
+          {
+            name: "2D RPG Game (Unity/C#)",
+            details: "Creation of a playable prototype (core systems, level design, VFX).",
+          },
         ],
-        github: "Projects available on my GitHub profile: github.com/Florian-Glay",
+        github: "See all projects on GitHub →",
       },
       languages: {
         title: "Languages",
         list: [
-          "French: Native",
-          "English: Fluent (B2)",
-          "German: Intermediate (A2)",
-          "Japanese: Basic (A1)",
+          "French — Native",
+          "English — B2",
+          "German — A2",
+          "Japanese — A1",
         ],
       },
       interests: {
         title: "Interests",
         list: [
-          "Video Games & Digital Design: Game creation, pixel art, development.",
-          "Running: 10 km in 50 minutes, half-marathon in 2 hours 17 minutes.",
-          "Music: Produce electronic music on my YouTube channel: K4TERI4music",
+          "Video games & digital design (creation, pixel art, dev)",
+          "Running (10 km: 50 min; half-marathon: 2h17)",
+          "Electronic music — YouTube channel K4TERI4music",
         ],
       },
     },
