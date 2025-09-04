@@ -70,11 +70,7 @@ function Card({ id, title, selected, onSelect }) {
   const { t } = useLang();
   const ref = useRef(null);
 
-  useEffect(() => {
-    if (selected && ref.current) {
-      ref.current.scrollIntoView({ block: "nearest", behavior: "smooth" });
-    }
-  }, [selected]);
+  useEffect(() => {}, [selected]);
 
   return (
     
